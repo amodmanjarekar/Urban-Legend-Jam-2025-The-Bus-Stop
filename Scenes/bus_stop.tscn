@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://o4nsfy4srtv2"]
+
+[ext_resource type="Texture2D" uid="uid://dcothet6psvnj" path="res://Assets/Sprites/bus-stop-Sheet.png" id="1_sgm25"]
+[ext_resource type="Texture2D" uid="uid://dekur7xxafd4u" path="res://Assets/Sprites/bus-stop-grill.png" id="2_rmj2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmj2f"]
+atlas = ExtResource("1_sgm25")
+region = Rect2(0, 0, 480, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pa8g"]
+atlas = ExtResource("1_sgm25")
+region = Rect2(484, 0, 480, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccrwv"]
+atlas = ExtResource("1_sgm25")
+region = Rect2(968, 0, 480, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixd7o"]
+atlas = ExtResource("1_sgm25")
+region = Rect2(1452, 0, 480, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x608w"]
+atlas = ExtResource("1_sgm25")
+region = Rect2(1936, 0, 480, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3412"]
+atlas = ExtResource("1_sgm25")
+region = Rect2(2420, 0, 480, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtv7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmj2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pa8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccrwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixd7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x608w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3412")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pa8g"]
+size = Vector2(76, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccrwv"]
+size = Vector2(124, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixd7o"]
+size = Vector2(108, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x608w"]
+size = Vector2(6, 5.5)
+
+[node name="bus-stop" type="StaticBody2D"]
+
+[node name="Bus-stop" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(157, 96)
+sprite_frames = SubResource("SpriteFrames_jtv7r")
+autoplay = "default"
+
+[node name="Bus-stop-grill" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(159, 95)
+texture = ExtResource("2_rmj2f")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, 44, -3, 71, 5, 71, 5, 60, 277, 60, 277, 71, 285, 71, 285, 44, 342, 44, 342, 124, -47, 124, -47, 46, -85, 46, -85, 196, 399, 196, 399, -4, -85, -4, -85, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 96.5)
+shape = SubResource("RectangleShape2D_4pa8g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(111, 97)
+shape = SubResource("RectangleShape2D_ccrwv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(247, 96)
+shape = SubResource("RectangleShape2D_ixd7o")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-25, 91.25)
+shape = SubResource("RectangleShape2D_x608w")

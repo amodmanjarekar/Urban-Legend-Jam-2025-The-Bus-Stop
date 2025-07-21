@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://su0cab212qud"]
+
+[ext_resource type="Script" uid="uid://ctpo6eu30khp4" path="res://Scripts/process_3.gd" id="1_3tjx3"]
+[ext_resource type="PackedScene" uid="uid://doksk8k612vfh" path="res://Scenes/bus.tscn" id="1_v80l7"]
+[ext_resource type="PackedScene" uid="uid://w77yyox6lcnu" path="res://Scenes/player.tscn" id="2_3tjx3"]
+[ext_resource type="Script" uid="uid://bp8j7a6qff0q2" path="res://Scripts/phone_btn.gd" id="4_x3tc1"]
+[ext_resource type="Texture2D" uid="uid://be101dgd28n4l" path="res://Assets/Sprites/Icons/phone-icon.png" id="5_ane8a"]
+[ext_resource type="PackedScene" uid="uid://dju4hf34gpff2" path="res://Scenes/phone.tscn" id="6_e10a6"]
+
+[node name="process_3" type="Node2D"]
+script = ExtResource("1_3tjx3")
+
+[node name="bus" parent="." instance=ExtResource("1_v80l7")]
+position = Vector2(145, 165)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(104, -2)
+
+[node name="player" parent="." instance=ExtResource("2_3tjx3")]
+position = Vector2(104, -2)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="phone-btn" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_x3tc1")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/phone-btn"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -31.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("5_ane8a")
+
+[node name="phone" parent="CanvasLayer" instance=ExtResource("6_e10a6")]
+
+[connection signal="toggled" from="CanvasLayer/phone-btn/TextureButton" to="CanvasLayer/phone" method="_on_texture_button_toggled"]

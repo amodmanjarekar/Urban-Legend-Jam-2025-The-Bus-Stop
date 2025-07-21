@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://djbx1jlhhk6jk"]
+
+[ext_resource type="Texture2D" uid="uid://dm858q1qjiv46" path="res://Assets/Sprites/phone/pfp-aubrey.png" id="1_2gl8v"]
+[ext_resource type="FontFile" uid="uid://ckft6ij5jx46l" path="res://Assets/Fonts/YanaTINY.ttf" id="2_tp56v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyhq0"]
+content_margin_left = 2.0
+content_margin_top = 0.0
+content_margin_right = 2.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0930979, 0.29471, 0.212481, 1)
+
+[node name="chat_message" type="HBoxContainer"]
+layout_direction = 2
+offset_right = 68.0
+offset_bottom = 19.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+mouse_filter = 1
+
+[node name="Image" type="Sprite2D" parent="Control"]
+texture_filter = 1
+position = Vector2(0, 4)
+texture = ExtResource("1_2gl8v")
+centered = false
+
+[node name="msg" type="Label" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_constants/line_spacing = -7
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_tp56v")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_hyhq0")
+text = "thanks "
+autowrap_mode = 2

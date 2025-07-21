@@ -1,0 +1,68 @@
+{
+	"aubrey": {
+		"convos": [
+			{
+				"progress": 0,
+				"time": "13 Aug",
+				"texts": [
+					{ "you": "just reached" },
+					{ "aubrey": "ok good" },
+					{ "aubrey": "are you okay now" },
+					{ "you": "yeah" },
+					{ "you": "hey" },
+					{ "you": "thanks for everything today" },
+					{ "aubrey": "lol dont mention it" },
+					{ "aubrey": "seeya later" },
+					{ "you": "yep" },
+					{ "you": "cya" }
+				]
+			}
+		]
+	},
+	"mom": {
+		"convos": [
+			{
+				"progress": 0,
+				"time": "Yesterday",
+				"texts": [
+					{ "mom": "This is mom" },
+					{ "you": "ok good" },
+				]
+			}
+		]
+	},
+	"taylor": {
+		"convos": [
+			{
+				"progress": 0,
+				"time": "Yesterday",
+				"texts": [
+					{ "taylor": "hey what time are you leaving?" },
+					{ "you": "sometime in the evening. i'll let you know" },
+					{ "taylor": "okayy" }
+				]
+			},
+			{
+				"progress": 0,
+				"time": "Today",
+				"texts": [
+					{ "you": "i'll leave in like half an hour" },
+					{ "taylor": "oh okay. text when youre at the bus stop" },
+					{ "you": "yeah" },
+					{ "you": "hey i'm at bus stop" }
+				]
+			},
+			{
+				"progress": 1,
+				"texts": [
+					{ "taylor": "oh good" },
+					{ "taylor": "i think the bus will be here soon" },
+					{ "taylor": "i hope the rain doesnt delay it much" },
+					{ "you": "i hope so too" },
+					{ "taylor": "text me when u get a seat yeah?" },
+					{ "you": "i will" },
+				]
+			}
+		]
+	},
+}

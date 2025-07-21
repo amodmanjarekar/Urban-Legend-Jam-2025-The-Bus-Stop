@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://doksk8k612vfh"]
+
+[ext_resource type="Texture2D" uid="uid://cwl7kcca31ouw" path="res://Assets/Sprites/bus-inside.png" id="1_43mbl"]
+[ext_resource type="PackedScene" uid="uid://dmva2yi8uromd" path="res://Scenes/bus_seat.tscn" id="2_he2g8"]
+
+[node name="bus" type="StaticBody2D"]
+
+[node name="bus-inside" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("1_43mbl")
+
+[node name="bus-collisions" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, -196, 28, -167, 38, -167, 38, -131, 96, -131, 96, 202, -96, 202, -96, -91, -87, -109, -31, -109, -20, -127, -20, -131, -23, -134, -112, -134, -112, 219, 112, 219, 112, -219, -112, -219, -112, -196)
+
+[node name="bus-seat-l1" parent="." instance=ExtResource("2_he2g8")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-64, -54)
+
+[node name="bus-seat-l2" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(-64, 10)
+
+[node name="bus-seat-l3" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(-64, 74)
+
+[node name="bus-seat-l4" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(-64, 138)
+
+[node name="bus-seat-l5" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(-64, 200)
+
+[node name="bus-seat-r5" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(64, 200)
+
+[node name="bus-seat-r4" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(64, 138)
+
+[node name="bus-seat-r3" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(64, 74)
+
+[node name="bus-seat-r2" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(64, 10)
+
+[node name="bus-seat-r1" parent="." instance=ExtResource("2_he2g8")]
+position = Vector2(64, -54)

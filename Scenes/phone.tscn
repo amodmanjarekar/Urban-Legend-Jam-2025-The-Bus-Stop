@@ -1,0 +1,229 @@
+[gd_scene load_steps=21 format=3 uid="uid://dju4hf34gpff2"]
+
+[ext_resource type="Script" uid="uid://b8rnu1uiriqsi" path="res://Scripts/phone.gd" id="1_1hxnx"]
+[ext_resource type="Texture2D" uid="uid://b2npuvx7jjhul" path="res://Assets/Sprites/phone/phone.png" id="1_6hkyp"]
+[ext_resource type="Texture2D" uid="uid://ccga5564ql6sk" path="res://Assets/Sprites/Icons/chat-icon.png" id="2_1hxnx"]
+[ext_resource type="Texture2D" uid="uid://dpmy2icdg1oxu" path="res://Assets/Sprites/Icons/contacts-icon.png" id="3_wp6br"]
+[ext_resource type="Texture2D" uid="uid://dna3cs74j3n7g" path="res://Assets/Sprites/Icons/gallery-icon.png" id="4_73tjn"]
+[ext_resource type="Texture2D" uid="uid://c355bak7hurw6" path="res://Assets/Sprites/Icons/app-selector.png" id="6_wp6br"]
+[ext_resource type="Texture2D" uid="uid://dhw1mmv7o54bv" path="res://Assets/Sprites/phone/chat-screen.png" id="7_thfn2"]
+[ext_resource type="Script" uid="uid://dqg7pm8qg8fr2" path="res://Scripts/chat_screen.gd" id="7_wne4o"]
+[ext_resource type="Texture2D" uid="uid://nv07wq01qk50" path="res://Assets/Sprites/Icons/chat-selector.png" id="8_nwb8g"]
+[ext_resource type="Texture2D" uid="uid://2n1y04wolgkk" path="res://Assets/Sprites/Icons/alert.png" id="9_1oe4f"]
+[ext_resource type="Texture2D" uid="uid://dj4ejmwpit6uy" path="res://Assets/Sprites/phone/chat-msg-screen.png" id="9_nwb8g"]
+[ext_resource type="Script" uid="uid://7gg83ecl3g8d" path="res://Scripts/chat_msg_screen.gd" id="9_uc4jk"]
+[ext_resource type="FontFile" uid="uid://ckft6ij5jx46l" path="res://Assets/Fonts/YanaTINY.ttf" id="11_uc4jk"]
+[ext_resource type="Texture2D" uid="uid://c0txvu8ikqi0u" path="res://Assets/Sprites/phone/pfp-mc.png" id="11_v4cyj"]
+[ext_resource type="Texture2D" uid="uid://b8utyklw1xbvl" path="res://Assets/Sprites/phone/typing.png" id="15_1oe4f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oe4f"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_uc4jk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3uua"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wne4o"]
+content_margin_left = 2.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_1oe4f"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_uc4jk")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_uc4jk")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_uc4jk")
+VScrollBar/icons/increment = SubResource("ImageTexture_uc4jk")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_uc4jk")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_uc4jk")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_u3uua")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_wne4o")
+
+[node name="phone" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1hxnx")
+
+[node name="home-screen" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 130.0
+
+[node name="Phone" type="Sprite2D" parent="home-screen"]
+texture_filter = 1
+texture = ExtResource("1_6hkyp")
+
+[node name="Chat-icon" type="Sprite2D" parent="home-screen"]
+texture_filter = 1
+position = Vector2(22, 42)
+texture = ExtResource("2_1hxnx")
+
+[node name="Contacts-icon" type="Sprite2D" parent="home-screen"]
+texture_filter = 1
+position = Vector2(0, 42)
+texture = ExtResource("3_wp6br")
+
+[node name="Gallery-icon" type="Sprite2D" parent="home-screen"]
+texture_filter = 1
+position = Vector2(-22, 42)
+texture = ExtResource("4_73tjn")
+
+[node name="App-selector" type="Sprite2D" parent="home-screen"]
+texture_filter = 1
+position = Vector2(22, 42)
+texture = ExtResource("6_wp6br")
+
+[node name="legend" type="VBoxContainer" parent="home-screen"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -69.0
+offset_right = 83.0
+offset_bottom = -29.0
+
+[node name="Label" type="Label" parent="home-screen/legend"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("11_uc4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1oe4f")
+text = "left: move left
+right: move right
+space: select app
+backspace: close phone"
+
+[node name="chat-screen" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 130.0
+script = ExtResource("7_wne4o")
+
+[node name="Chat-screen" type="Sprite2D" parent="chat-screen"]
+texture_filter = 1
+texture = ExtResource("7_thfn2")
+
+[node name="alert" type="Sprite2D" parent="chat-screen/Chat-screen"]
+visible = false
+position = Vector2(27, -37)
+texture = ExtResource("9_1oe4f")
+
+[node name="alert2" type="Sprite2D" parent="chat-screen/Chat-screen"]
+visible = false
+position = Vector2(27, -20)
+texture = ExtResource("9_1oe4f")
+
+[node name="alert3" type="Sprite2D" parent="chat-screen/Chat-screen"]
+visible = false
+position = Vector2(27, -3)
+texture = ExtResource("9_1oe4f")
+
+[node name="Chat-selector" type="Sprite2D" parent="chat-screen"]
+texture_filter = 1
+position = Vector2(0, -38)
+texture = ExtResource("8_nwb8g")
+
+[node name="legend" type="VBoxContainer" parent="chat-screen"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -69.0
+offset_right = 83.0
+offset_bottom = -29.0
+
+[node name="Label" type="Label" parent="chat-screen/legend"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("11_uc4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1oe4f")
+text = "up: move up
+down: move down
+space: select chat
+backspace: go back"
+
+[node name="chat-msg-screen" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 130.0
+script = ExtResource("9_uc4jk")
+
+[node name="Chat-msg-screen" type="Sprite2D" parent="chat-msg-screen"]
+texture_filter = 1
+texture = ExtResource("9_nwb8g")
+
+[node name="chat-name" type="Label" parent="chat-msg-screen"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -19.0
+offset_top = -61.0
+offset_right = 25.0
+offset_bottom = -48.0
+theme_override_fonts/font = ExtResource("11_uc4jk")
+theme_override_font_sizes/font_size = 17
+text = "name"
+
+[node name="chat-pfp" type="Sprite2D" parent="chat-msg-screen"]
+texture_filter = 1
+position = Vector2(-27, -52)
+texture = ExtResource("11_v4cyj")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="chat-msg-screen"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -44.0
+offset_right = 34.0
+offset_bottom = 44.0
+mouse_force_pass_scroll_events = false
+theme = SubResource("Theme_1oe4f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="chat-msg-screen/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="typing-dots" type="Sprite2D" parent="chat-msg-screen"]
+visible = false
+texture_filter = 1
+position = Vector2(0, -41)
+texture = ExtResource("15_1oe4f")
+
+[node name="legend" type="VBoxContainer" parent="chat-msg-screen"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -69.0
+offset_right = 83.0
+offset_bottom = -29.0
+
+[node name="Label" type="Label" parent="chat-msg-screen/legend"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("11_uc4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1oe4f")
+text = "enter: send / recieve text
+up: scroll up
+down: scroll down
+backspace: go back"

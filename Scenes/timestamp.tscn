@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhntmtmp3in3x"]
+
+[ext_resource type="FontFile" uid="uid://ckft6ij5jx46l" path="res://Assets/Fonts/YanaTINY.ttf" id="1_wrj45"]
+
+[node name="timestamp" type="Label"]
+texture_filter = 1
+theme_override_fonts/font = ExtResource("1_wrj45")
+theme_override_font_sizes/font_size = 16
+text = "13 Aug"
+horizontal_alignment = 1
